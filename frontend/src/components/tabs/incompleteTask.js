@@ -9,7 +9,7 @@ function IncompleteTask() {
   const navigate = useNavigate();
 
   const loadTasks = () => {
-    fetch("http://31.97.207.137:8090/api/tasks/incomplete")
+    fetch("https://to-do-list-backend-6.onrender.com/api/tasks/incomplete")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
@@ -35,7 +35,7 @@ function IncompleteTask() {
 
   const handleToggleCompleted = (task) => {
     const updatedTask = { ...task, status: !task.status };
-    fetch(`http://31.97.207.137:8090/api/tasks/${task.id}`, {
+    fetch(`https://to-do-list-backend-6.onrender.com/api/tasks/${task.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedTask),
@@ -53,7 +53,7 @@ function IncompleteTask() {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this task?")) {
-      fetch(`http://31.97.207.137:8090/api/tasks/${id}`, { method: "DELETE" })
+      fetch(`https://to-do-list-backend-6.onrender.com/api/tasks/${id}`, { method: "DELETE" })
         .then(() => loadTasks())
         .catch(() => alert("Failed to delete task"));
     }

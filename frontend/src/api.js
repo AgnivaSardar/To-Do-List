@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://31.97.207.137:8090';
+const BASE_URL = 'https://to-do-list-backend-6.onrender.com';
 
 export const getTasks = () => axios.get(`${BASE_URL}/tasks`);
 

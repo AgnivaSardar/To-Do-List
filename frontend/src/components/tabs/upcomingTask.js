@@ -18,7 +18,7 @@ function UpcomingTask() {
   const fetchTasks = (date) => {
     setLoading(true);
     const formattedDate = date.toISOString().split("T")[0];
-    return fetch(`http://31.97.207.137:8090/api/tasks/upcoming?fromDate=${formattedDate}`)
+    return fetch(`https://to-do-list-backend-6.onrender.com/api/tasks/upcoming?fromDate=${formattedDate}`)
       .then((res) => res.json())
       .then((data) => {
         setTasks(data);
@@ -40,7 +40,7 @@ function UpcomingTask() {
       status: !task.status,
       date: task.date,
     };
-    fetch(`http://31.97.207.137:8090/api/tasks/${task.id}`, {
+    fetch(`https://to-do-list-backend-6.onrender.com/api/tasks/${task.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedTask),
@@ -60,7 +60,7 @@ function UpcomingTask() {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this task?")) {
-      fetch(`http://31.97.207.137:8090/api/tasks/${id}`, { method: "DELETE" })
+      fetch(`https://to-do-list-backend-6.onrender.com/api/tasks/${id}`, { method: "DELETE" })
         .then(() => fetchTasks(selectedDate))
         .catch(() => alert("Failed to delete task"));
     }

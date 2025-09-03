@@ -10,7 +10,7 @@ function SearchTask() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://31.97.207.137:8090/api/tasks")
+    fetch("https://to-do-list-backend-6.onrender.com/api/tasks")
       .then((res) => res.json())
       .then((data) => {
         setTasks(Array.isArray(data) ? data : []);
@@ -25,14 +25,14 @@ function SearchTask() {
 
   const handleToggleCompleted = (task) => {
     const updatedTask = { ...task, status: !task.status };
-    fetch(`http://31.97.207.137:8090/api/tasks/${task.id}`, {
+    fetch(`https://to-do-list-backend-6.onrender.com/api/tasks/${task.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedTask),
     })
       .then((res) => {
         if (!res.ok) throw new Error("Update failed");
-        return fetch("http://31.97.207.137:8090/api/tasks")
+        return fetch("https://to-do-list-backend-6.onrender.com/api/tasks")
           .then((res) => res.json())
           .then((data) => {
             setTasks(Array.isArray(data) ? data : []);
@@ -47,9 +47,9 @@ function SearchTask() {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this task?")) {
-      fetch(`http://31.97.207.137:8090/api/tasks/${id}`, { method: "DELETE" })
+      fetch(`https://to-do-list-backend-6.onrender.com/api/tasks/${id}`, { method: "DELETE" })
         .then(() => {
-          fetch("http://31.97.207.137:8090/api/tasks")
+          fetch("https://to-do-list-backend-6.onrender.com/api/tasks")
             .then((res) => res.json())
             .then((data) => {
               setTasks(Array.isArray(data) ? data : []);
