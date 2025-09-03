@@ -10,7 +10,7 @@ function SearchTask() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:8080/api/tasks")
+    fetch("http://31.97.207.137:8090/api/tasks")
       .then((res) => res.json())
       .then((data) => {
         setTasks(Array.isArray(data) ? data : []);
@@ -25,14 +25,14 @@ function SearchTask() {
 
   const handleToggleCompleted = (task) => {
     const updatedTask = { ...task, status: !task.status };
-    fetch(`http://localhost:8080/api/tasks/${task.id}`, {
+    fetch(`http://31.97.207.137:8090/api/tasks/${task.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedTask),
     })
       .then((res) => {
         if (!res.ok) throw new Error("Update failed");
-        return fetch("http://localhost:8080/api/tasks")
+        return fetch("http://31.97.207.137:8090/api/tasks")
           .then((res) => res.json())
           .then((data) => {
             setTasks(Array.isArray(data) ? data : []);
@@ -47,9 +47,9 @@ function SearchTask() {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this task?")) {
-      fetch(`http://localhost:8080/api/tasks/${id}`, { method: "DELETE" })
+      fetch(`http://31.97.207.137:8090/api/tasks/${id}`, { method: "DELETE" })
         .then(() => {
-          fetch("http://localhost:8080/api/tasks")
+          fetch("http://31.97.207.137:8090/api/tasks")
             .then((res) => res.json())
             .then((data) => {
               setTasks(Array.isArray(data) ? data : []);

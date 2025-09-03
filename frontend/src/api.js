@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8080/api';  
+const BASE_URL = 'http://31.97.207.137:8090';
 
 export const getTasks = () => axios.get(`${BASE_URL}/tasks`);
 

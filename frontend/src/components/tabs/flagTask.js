@@ -10,7 +10,7 @@ function FlagTask() {
 
   const loadTasks = () => {
     setLoading(true);
-    fetch("http://localhost:8080/api/tasks/flagged")
+    fetch("http://31.97.207.137:8090/api/tasks/flagged")
       .then((res) => res.json())
       .then((data) => {
         setTasks(data);
@@ -28,7 +28,7 @@ function FlagTask() {
 
   const handleToggleCompleted = (task) => {
     const updatedTask = { ...task, status: !task.status };
-    fetch(`http://localhost:8080/api/tasks/${task.id}`, {
+    fetch(`http://31.97.207.137:8090/api/tasks/${task.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedTask),
@@ -46,7 +46,7 @@ function FlagTask() {
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this task?")) {
-      fetch(`http://localhost:8080/api/tasks/${id}`, { method: "DELETE" })
+      fetch(`http://31.97.207.137:8090/api/tasks/${id}`, { method: "DELETE" })
         .then(() => loadTasks())
         .catch(() => alert("Failed to delete task"));
     }

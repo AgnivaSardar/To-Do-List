@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"http://localhost:3000","https://to-do-list-frontend-ry33.vercel.app/"})
 @RestController
 @RequestMapping("/api/tasks")
 public class TaskController {

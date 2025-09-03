@@ -15,7 +15,7 @@ function EditTask() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/tasks/${id}`)
+    fetch(`http://31.97.207.137:8090/api/tasks/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error("Task not found");
         return res.json();
@@ -47,7 +47,7 @@ function EditTask() {
       date,
     };
 
-    fetch(`http://localhost:8080/api/tasks/${id}`, {
+    fetch(`http://31.97.207.137:8090/api/tasks/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedTask),
