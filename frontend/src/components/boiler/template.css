@@ -29,16 +29,16 @@ body.dark-mode {
 }
 
 .main {
-  color: var(--text-color);
+   color: var(--text-color);
   height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   background-color: var(--bg-color);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 450;
 }
 
@@ -81,6 +81,8 @@ button:active span {
 }
 
 .search:has(button:hover),
+.add:has(button:hover),
+.incomplete:has(button:hover),
 .today:has(button:hover),
 .upcoming:has(button:hover),
 .flag:has(button:hover),
@@ -98,23 +100,29 @@ button:active span {
 }
 
 .header {
+  font-size: x-large;
+  font-weight: bold;
   color: var(--text-color);
   width: 100%;
-  height: 10%;
+  height: 64px;
+  min-height: 64px;
+  max-height: 64px;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid var(--header-footer-border);
   background-color: var(--header-footer-bg);
+  flex-shrink: 0;
+  flex-grow: 0;   
 }
 
 .middle {
+  flex: 1 1 auto;         
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 100%;
-  align-items: center;
+  overflow: hidden;       
   font-family: 'Times New Roman', Times, serif;
 }
 
@@ -124,15 +132,18 @@ button:active span {
   display: flex;
   flex-direction: column;
   width: 15%;
+  min-width: 140px;
   height: 100%;
   border-right: 1px solid var(--sidebar-border);
+  flex-shrink: 0;
 }
-
+.add,
 .search,
 .today,
 .upcoming,
 .flag,
-.completed {
+.completed,
+.incomplete {
   border-radius: 20px;
   margin-top: 20px;
   width: 90%;
@@ -143,17 +154,21 @@ button:active span {
 }
 
 .workarea {
-  width: 70%;
+  width: 85%;           
   height: 100%;
+  overflow-y: auto;      
   display: flex;
-  justify-content: center;
-  margin-top: 100px;
+  flex-direction: column;
+  justify-content: flex-start;
+  -webkit-overflow-scrolling: touch;
 }
 
 .footer {
   color: var(--footer-text-color);
   width: 100%;
-  height: 10%;
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
   text-emphasis-color: var(--footer-text-color);
   text-align: center;
   align-items: center;
@@ -162,6 +177,8 @@ button:active span {
   justify-content: center;
   align-items: center;
   background-color: var(--header-footer-bg);
+  flex-shrink: 0;
+  flex-grow: 0;
 }
 
 

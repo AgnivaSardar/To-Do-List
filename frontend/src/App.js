@@ -7,6 +7,10 @@ import TodayTask from './components/tabs/todayTask';
 import UpcomingTask from './components/tabs/upcomingTask';
 import FlagTask from './components/tabs/flagTask';
 import CompletedTask from './components/tabs/completedTask';
+import AddTask from './components/tabs/addTask';
+import IncompleteTask from './components/tabs/incompleteTask';
+import EditTask from './components/tabs/editTask';
+
 
 function App() {
   return (
@@ -19,6 +23,9 @@ function App() {
           <Route path="upcoming-task" element={<UpcomingTask />} />
           <Route path="flag-task" element={<FlagTask />} />
           <Route path="completed-task" element={<CompletedTask />} />
+          <Route path="add-task" element={<AddTask />} />
+          <Route path="incomplete-task" element={<IncompleteTask />} />
+          <Route path="/edit-task/:id" element={<EditTask />} />
         </Route>
       </Routes>
     </Router>

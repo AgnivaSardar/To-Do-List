@@ -3,22 +3,29 @@ import { useNavigate } from "react-router-dom";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import './workArea.css';
 
-function FlagTask() {
-  const [tasks, setTasks] = useState([]);
+function IncompleteTask() {
+  const [tasks, setTasks] = useState([]); 
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   const loadTasks = () => {
-    setLoading(true);
-    fetch("http://localhost:8080/api/tasks/flagged")
+    fetch("http://localhost:8080/api/tasks/incomplete")
       .then((res) => res.json())
       .then((data) => {
-        setTasks(data);
+        if (Array.isArray(data)) {
+          setTasks(data);
+        } else if (data && Array.isArray(data.tasks)) {
+          setTasks(data.tasks);
+        } else {
+          setTasks([]);
+          console.error("API response is not an array or expected object");
+        }
         setLoading(false);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error("Failed to load incomplete tasks", error);
         setLoading(false);
-        alert("Failed to load flagged tasks");
+        alert("Failed to load incomplete tasks");
       });
   };
 
@@ -54,11 +61,11 @@ function FlagTask() {
 
   return (
     <div className="workarea">
-      <h3>Flagged Tasks</h3>
+      <h3>Incomplete Tasks</h3>
       {loading ? (
         <p>Loading tasks...</p>
       ) : tasks.length === 0 ? (
-        <p>No flagged tasks found.</p>
+        <p>No incomplete tasks found.</p>
       ) : (
         <ul className="task-list">
           {tasks.map((task) => (
@@ -90,4 +97,4 @@ function FlagTask() {
   );
 }
 
-export default FlagTask;
+export default IncompleteTask;

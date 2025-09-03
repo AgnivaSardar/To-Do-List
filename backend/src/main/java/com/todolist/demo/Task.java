@@ -48,13 +48,6 @@ public class Task {
         this.description = description;
     }
 
-    public String getColour() {
-        return colour;
-    }
-    public void setColour(String colour) {
-        this.colour = colour;
-    }
-
     public boolean getStatus() {
         return status;
     }
@@ -68,4 +61,5 @@ public class Task {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
 }
