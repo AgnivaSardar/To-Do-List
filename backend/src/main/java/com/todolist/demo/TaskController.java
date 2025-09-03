@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 
@@ -56,4 +58,27 @@ public class TaskController {
     {
         taskRepository.deleteById(id);
     }
+
+
+    @GetMapping("/today")
+    public List<Task> getTodayTasks() {
+        LocalDate today = LocalDate.now();
+        return taskRepository.findByDueDate(today);
+    }
+
+    @GetMapping("/upcoming")
+    public List<Task> getUpcomingTasks(@RequestParam("fromDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fromDate) {
+        return taskRepository.findByDueDateAfter(fromDate);
+    }
+
+    @GetMapping("/flagged")
+    public List<Task> getFlaggedTasks() {
+        return taskRepository.findByFlagTrue();
+    }
+
+    @GetMapping("/completed")
+    public List<Task> getCompletedTasks() {
+        return taskRepository.findByCompletedTrue();
+    }
+
 }

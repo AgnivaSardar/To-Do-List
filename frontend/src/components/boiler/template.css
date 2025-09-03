@@ -145,6 +145,9 @@ button:active span {
 .workarea {
   width: 70%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
 }
 
 .footer {
@@ -205,3 +208,5 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(26px);
 }
+
+

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate, Outlet, useLocation } from 'react-router-dom'; 
 import "./template.css";
 
 function Template() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // Update body class when darkMode changes
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add("dark-mode");
@@ -13,10 +15,12 @@ function Template() {
     }
   }, [darkMode]);
 
-  // Handler for toggle switch
   const handleToggle = (e) => {
     setDarkMode(e.target.checked);
   };
+
+  // Optional: to highlight active tab, determine active path
+  const activePath = location.pathname;
 
   return (
     <div className="main">
@@ -34,33 +38,35 @@ function Template() {
       </div>
       <div className="middle">
         <div className="leftCol">
-          <div className="search">
-            <button className="searchTab">
+          <div className={`search ${activePath === "/search-task" ? "active" : ""}`}>
+            <button className="searchTab" onClick={() => navigate('/search-task')}>
               <span>Search Task</span>
             </button>
           </div>
-          <div className="today">
-            <button className="todayTab">
+          <div className={`today ${activePath === "/today-task" ? "active" : ""}`}>
+            <button className="todayTab" onClick={() => navigate('/today-task')}>
               <span>Today's Tasks</span>
             </button>
           </div>
-          <div className="upcoming">
-            <button className="upcomingTab">
+          <div className={`upcoming ${activePath === "/upcoming-task" ? "active" : ""}`}>
+            <button className="upcomingTab" onClick={() => navigate('/upcoming-task')}>
               <span>Upcoming Tasks</span>
             </button>
           </div>
-          <div className="flag">
-            <button className="flagTab">
+          <div className={`flag ${activePath === "/flag-task" ? "active" : ""}`}>
+            <button className="flagTab" onClick={() => navigate('/flag-task')}>
               <span>Flags</span>
             </button>
           </div>
-          <div className="completed">
-            <button className="completedTab">
+          <div className={`completed ${activePath === "/completed-task" ? "active" : ""}`}>
+            <button className="completedTab" onClick={() => navigate('/completed-task')}>
               <span>Completed Tasks</span>
             </button>
           </div>
         </div>
-        <div className="workarea"></div>
+        <div className="workarea">
+          <Outlet />
+        </div>
       </div>
       <div className="footer">by Agniva Sardar 24BPS1125</div>
     </div>

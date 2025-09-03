@@ -1,4 +1,7 @@
 package com.todolist.demo;
+import java.sql.Date;
+import java.time.LocalDate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,8 +15,10 @@ public class Task {
     private long id;
     private String title;
     private String description;
-    private String flag;
+    private boolean flag;
     private String colour;
+    private boolean status;
+    private LocalDate date; 
 
     public long getId() {
         return id;
@@ -29,10 +34,10 @@ public class Task {
         this.title = title;
     }
 
-    public String getFlag() {
+    public boolean getFlag() {
         return flag;
     }
-    public void setFlag(String flag) {
+    public void setFlag(boolean flag) {
         this.flag = flag;
     }
 
@@ -48,5 +53,19 @@ public class Task {
     }
     public void setColour(String colour) {
         this.colour = colour;
+    }
+
+    public boolean getStatus() {
+        return status;
+    }
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }
