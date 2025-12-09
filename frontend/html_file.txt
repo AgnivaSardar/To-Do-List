@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government JobPage</title>
+    <link  rel="stylesheet" href="prog1.css">
+</head>
+<body>
+    <h1 class="title"> WebPage Title</h1>
+    <h2>About the Company</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque illo exercitationem necessitatibus deleniti ut fugit enim mollitia ducimus corrupti quos nemo, fuga nisi porro sit quis dolorem officia ipsam inventore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ad officiis quidem excepturi suscipit, quae itaque eos. Placeat magni, quis vel hic consequatur, dolorum nulla nihil maiores, architecto ex fugiat.lore Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, sunt tenetur. Voluptates praesentium nihil a non optio explicabo nisi, rerum facere adipisci ducimus. Illum recusandae minima inventore saepe quibusdam laboriosam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores tempora ab est repudiandae unde odio iusto aliquid molestiae dolorem ut eaque, iure consequatur vero saepe eius. Quia sunt cupiditate nihil?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore, laboriosam. Eligendi molestias quasi et possimus qui quis animi, fugit quos eaque, inventore ex excepturi saepe? Eaque quidem suscipit eligendi consectetur.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores dicta itaque rem, officia beatae eum. Cupiditate perferendis dolore neque similique error expedita, magni impedit vel atque est odit deserunt in. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum obcaecati ab ad? Recusandae, provident a. Enim facilis eveniet velit, numquam excepturi necessitatibus quam? Accusantium illo vel qui a. Fugit, in. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam cupiditate doloremque ex quibusdam nesciunt eos consectetur. Distinctio dolore totam obcaecati nesciunt impedit ad cupiditate, voluptatem repudiandae blanditiis ipsum animi consequuntur.</p>
+    
+    <div class="lead">
+        <h2><u>Company Leaders</u></h2>
+        <table class="leader" border="2">
+            <tr>
+                <th>The President</th>
+                <th>War Head</th>
+                <th>Tech Head</th>
+            </tr>
+            <tr>
+                <td><img src="download.jfif"></td>
+                <td><img src="modi.jfif"></td>
+                <td><img src="musk.jfif"></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.donaldjtrump.com/">More Info</a></td>
+                <td><a href="https://www.narendramodi.in/">More Info</a></td>
+                <td><a href="https://www.tesla.com/elon-musk">More Info</a></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div class="options">
+        <h2 class="sub-title"><u>Table of options</u></h2>
+        <table class="jobs" border="2">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Jobs Available</th>
+                <th>Job Description</th>
+                <th>Job Vacancies</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Technician</td>
+                <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores doloremque neque minus aperiam aut alias sequi accusamus, provident nobis ab illo quos omnis magnam quo recusandae ad, odio quis possimus?</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Missile Maker</td>
+                <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores doloremque neque minus aperiam aut alias sequi accusamus, provident nobis ab illo quos omnis magnam quo recusandae ad, odio quis possimus?</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Hacker</td>
+                <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores doloremque neque minus aperiam aut alias sequi accusamus, provident nobis ab illo quos omnis magnam quo recusandae ad, odio quis possimus?</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Health Care</td>
+                <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores doloremque neque minus aperiam aut alias sequi accusamus, provident nobis ab illo quos omnis magnam quo recusandae ad, odio quis possimus?</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Wellness Staff</td>
+                <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores doloremque neque minus aperiam aut alias sequi accusamus, provident nobis ab illo quos omnis magnam quo recusandae ad, odio quis possimus?</td>
+                <td>4</td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+    <div class="form">
+        <h3><u>Job Apply Form</u></h3>
+        <div class="inside">
+            <form class="jobapply">
+                First Name <input type="text"> &nbsp; Last Name <input type="text">
+                <br><br>
+                Phone Number <input type="text"> &nbsp; Email ID <input type="email">
+                <br><br>
+                Address <br><textarea class="big-box"> </textarea>
+                <br><br>
+                Maximum Education <label for="edu">Choose</label>
+                <select name="edu">
+                    <option>6th Pass</option>
+                    <option>10th Pass</option>
+                    <option>12th Pass</option>
+                    <option>B.tech</option>
+                    <option>M.tech</option>
+                    <option>MBBS</option>
+                    <option>BA/MA</option>
+                    <option>PhD</option>
+                </select> 
+                &nbsp;&nbsp;
+                Job Role Wanted <label for="job">Choose</label>
+                <select name="job">
+                    <option>Technician</option>
+                    <option>Missile Maker</option>
+                    <option>Hacker</option>
+                    <option>Health Care</option>
+                    <option>Wellness Staff</option>
+                </select> 
+                <br><br>
+                <input type="submit">
+            </form>
+        </div>
+        
+    </div>  
+</body>
+</html>
